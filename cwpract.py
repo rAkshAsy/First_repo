@@ -1,46 +1,30 @@
-"""
-Complete the function which returns the weekday according to the input number:
+'''
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
 
-1 returns "Sunday"
-2 returns "Monday"
-3 returns "Tuesday"
-4 returns "Wednesday"
-5 returns "Thursday"
-6 returns "Friday"
-7 returns "Saturday"
-Otherwise returns "Wrong, please enter a number between 1 and 7"
-"""
+Examples
+high_and_low("1 2 3 4 5") # return "5 1"
+high_and_low("1 2 -3 4 5") # return "5 -3"
+high_and_low("1 9 3 4 -5") # return "9 -5"
+Notes
+All numbers are valid Int32, no need to validate them.
+There will always be at least one number in the input string.
+Output string must be two numbers separated by a single space, and highest number is first.
+'''
 
+def high_and_low(numbers:str):
+    numbers = numbers.split()
+    higher, lower = int(numbers[0]), int(numbers[0])
+    for num in numbers:
+        higher = int(num) if int(num) > higher else higher
+        lower = int(num) if int(num) < lower else lower
+        
+    return f'{higher} {lower}'
 
-
-def what_day(num: int): 
-    day_lib = {1: "Sunday", 2: "Monday", 3: "Tuesday", 4: "Wednesday", 5: "Thursday", 6: "Friday", 7: "Saturday"}
-    try:
-        print(day_lib[int(num)])
-    except KeyError:
-        print("Wrong, please enter a number between 1 and 7")
-    except  TypeError:
-        print("Wrong, please enter a number between 1 and 7")
-    except  ValueError:
-        print("Wrong, please enter a number between 1 and 7")
-
-
-def whatDay(num):
-        day_lib = {1: "Sunday", 2: "Monday", 3: "Tuesday", 4: "Wednesday", 5: "Thursday", 6: "Friday", 7: "Saturday"}
-        return day_lib.get(num, "Wrong, please enter a number between 1 and 7")
+# Better issues  
+# def high_and_low(numbers):
+#   numbers = [int(c) for c in numbers.split(' ')]
+#   return f"{max(numbers)} {min(numbers)}"
 
 
-
-
-print(whatDay(0)) # "Wrong, please enter a number between 1 and 7"
-print(whatDay(1)) # "Sunday"
-print(whatDay(3)) # "Tuesday"
-print(whatDay(10)) # "Wrong, please enter a number between 1 and 7"
-print(whatDay('Hello')) # "Wrong, please enter a number between 1 and 7"
-print('**'*50)
-
-what_day(1) # "Sunday"
-what_day(3) # "Tuesday"
-what_day(0) # "Wrong, please enter a number between 1 and 7"
-what_day(10) # "Wrong, please enter a number between 1 and 7"
-what_day('Hello') # "Wrong, please enter a number between 1 and 7"
+print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4")) # 42 -9
+print(high_and_low("1 2 3")) # 3 1
