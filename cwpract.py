@@ -32,15 +32,15 @@ def whatDay(num):
 
 
 
-print(whatDay(0))
-print(whatDay(1))
-print(whatDay(3))
-print(whatDay(10))
-print(whatDay('Hello'))
+print(whatDay(0)) # "Wrong, please enter a number between 1 and 7"
+print(whatDay(1)) # "Sunday"
+print(whatDay(3)) # "Tuesday"
+print(whatDay(10)) # "Wrong, please enter a number between 1 and 7"
+print(whatDay('Hello')) # "Wrong, please enter a number between 1 and 7"
 print('**'*50)
 
-what_day(1)
-what_day(3)
-what_day(0)
-what_day(10)
-what_day('Hello')
+what_day(1) # "Sunday"
+what_day(3) # "Tuesday"
+what_day(0) # "Wrong, please enter a number between 1 and 7"
+what_day(10) # "Wrong, please enter a number between 1 and 7"
+what_day('Hello') # "Wrong, please enter a number between 1 and 7"
